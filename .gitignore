@@ -22,7 +22,7 @@ local-inspection/
 capture/
 
 # Gradle
-.gradle/
+**/.gradle/
 !.gradle-wrapper/
 .gradle-wrapper/
 
