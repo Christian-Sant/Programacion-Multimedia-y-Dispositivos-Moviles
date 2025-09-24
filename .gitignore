@@ -42,7 +42,6 @@ capture/
 .idea/**/shelf/
 .idea/**/logs/
 # Gradle and AGP related
-.gradle/
 build/
 .cxx/
 .externalNativeBuild/
