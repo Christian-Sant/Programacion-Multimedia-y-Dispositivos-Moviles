@@ -69,6 +69,9 @@ signing-config.txt
 # NDK
 obj/
 
+
+**/.gradle/
+
 # Android Gradle Plugin cache
 .android/build-cache
 
