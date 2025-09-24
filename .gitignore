@@ -1,0 +1,151 @@
+### Android ###
+# Built application files
+*.apk
+*.ap_
+*.aab
+*.apks
+*.apex
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Generated files
+bin/
+gen/
+out/
+build/
+intermediates/
+outputs/
+.externalNativeBuild/
+.cxx/
+local-inspection/
+capture/
+
+# Gradle
+.gradle/
+!.gradle-wrapper/
+.gradle-wrapper/
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries/
+# Remove .idea/**/shelf/ if you want to checkin shelf items
+.idea/**/shelf/
+.idea/**/logs/
+# Gradle and AGP related
+.gradle/
+build/
+.cxx/
+.externalNativeBuild/
+
+# Android Profiler
+*.hprof
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (keep if you have them in a secure way, otherwise uncomment)
+# google-services.json
+# firebase.json
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Proguard
+proguard-rules.pro
+
+# Sign config (if stored, but better to ignore)
+signing-config.txt
+
+# NDK
+obj/
+
+# Android Gradle Plugin cache
+.android/build-cache
+
+# maven local
+.m2/
+
+# Unit tests
+.test-result/
+test-results/
+*.testlog
+
+# Lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+*.lint/
+
+# Navigation Editor
+.navigation/
+
+# APK Analyzer
+.analyzer/
+
+# Dynamic Feature Delivery
+assetpacks/
+
+# Jetpack Compose
+kotlin/
+compose/
+
+# Detekt and other static analysis
+reports/
+detekt/
+ktlint/
+checkstyle/
+
+# Secrets
+secrets.properties
+## /secrets/
+
+# Environment variables
+.env
+.env.local
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+
+# Linux
+*~
+
+# Version control
+.vim/
+*.swp
+*.swo
+.DS_Store?
+._*
+
+# IDE and editors
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js (if using React Native or web tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnpm-debug.log
+.next/
+dist/   
