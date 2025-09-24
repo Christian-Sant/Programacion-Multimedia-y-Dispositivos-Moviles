@@ -23,6 +23,7 @@ capture/
 
 # Gradle
 **/.gradle/
+**/gradle/
 !.gradle-wrapper/
 .gradle-wrapper/
 
@@ -70,7 +71,6 @@ signing-config.txt
 obj/
 
 
-**/.gradle/
 
 # Android Gradle Plugin cache
 .android/build-cache
