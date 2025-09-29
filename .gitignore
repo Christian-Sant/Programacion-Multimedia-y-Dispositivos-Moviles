@@ -21,11 +21,7 @@ outputs/
 local-inspection/
 capture/
 
-# Gradle
-**/.gradle/
-**/gradle/
-!.gradle-wrapper/
-.gradle-wrapper/
+
 
 # Android Studio
 .idea/
@@ -34,17 +30,14 @@ capture/
 *.ipr
 .idea/workspace.xml
 .idea/tasks.xml
-.idea/gradle.xml
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries/
 # Remove .idea/**/shelf/ if you want to checkin shelf items
 .idea/**/shelf/
 .idea/**/logs/
-# Gradle and AGP related
-build/
-.cxx/
-.externalNativeBuild/
+
+
 
 # Android Profiler
 *.hprof
@@ -71,8 +64,7 @@ obj/
 
 
 
-# Android Gradle Plugin cache
-.android/build-cache
+
 
 # maven local
 .m2/
