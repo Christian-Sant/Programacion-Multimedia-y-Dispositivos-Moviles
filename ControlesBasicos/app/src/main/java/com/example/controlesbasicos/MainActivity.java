@@ -27,15 +27,16 @@ public class MainActivity extends AppCompatActivity {
     }
     protected void onStart(){
         super.onStart();
+
         TextView miTexto = (TextView) findViewById(R.id.texto);
         miTexto.setText("Despues");
         miTexto.setTextColor(Color.parseColor("#000000"));
         miTexto.setTypeface(null, Typeface.ITALIC);
         miTexto.setTextSize(24);
         miTexto.setTypeface(Typeface.SANS_SERIF);
-        Animation miAnimacion= AnimationUtils.loadAnimation(this,R.anim.animacion);
-        miAnimacion.setRepeatMode(Animation.RESTART);
-        miAnimacion.setRepeatCount(20);
-        miTexto.startAnimation(miAnimacion);
+        Animation n2= AnimationUtils.loadAnimation(this,R.anim.n2);
+        n2.setRepeatMode(Animation.RESTART);
+        n2.setRepeatCount(20);
+        miTexto.startAnimation(n2);
     }
 }
