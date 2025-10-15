@@ -17,6 +17,26 @@
     </TextView>
     <TableRow>
         <Button
+            android:id = "@+id/AC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#DE5C31"
+            android:layout_span="2"
+            android:text="AC">
+        </Button>
+        <Button
+            android:id = "@+id/C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#DE5C31"
+            android:layout_span="2"
+            android:text="C">
+        </Button>
+    </TableRow>
+    <TableRow>
+        <Button
             android:id = "@+id/numeroUno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#1F2443"
             android:text="/">
         </Button>
     </TableRow>
@@ -79,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#1F2443"
             android:text="*">
         </Button>
     </TableRow>
@@ -113,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#1F2443"
             android:text="-">
         </Button>
     </TableRow>
@@ -131,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#1F2443"
             android:text=".">
         </Button>
         <Button
@@ -139,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#1F2443"
             android:text="=">
         </Button>
         <Button
@@ -147,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:backgroundTint="#673AB7"
+            android:backgroundTint="#1F2443"
             android:text="+">
         </Button>
     </TableRow>
