@@ -13,7 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    int contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,17 @@ public class MainActivity extends AppCompatActivity {
         Button quitarTodo = findViewById(R.id.AC);
         TextView texto = findViewById(R.id.texto);
         numeroUno.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+            public void onClick(View view) {
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("1");
                 }
@@ -50,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroDos.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("2");
                 }
@@ -60,6 +79,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroTres.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("3");
                 }
@@ -70,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroCuatro.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("4");
                 }
@@ -80,6 +119,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroCinco.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("5");
                 }
@@ -90,6 +139,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroSeis.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("6");
                 }
@@ -100,6 +159,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroSiete.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("7");
                 }
@@ -110,6 +179,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroOcho.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("8");
                 }
@@ -120,6 +199,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroNueve.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("9");
                 }
@@ -130,6 +219,16 @@ public class MainActivity extends AppCompatActivity {
         });
         numeroCero.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                int length = texto.getText().toString().length();
+                if (length > 1){
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    char penultimoCaracter = texto.getText().toString().charAt(length - 2);
+                    if (ultimoCaracter == '0') {
+                        if (penultimoCaracter == '/' || penultimoCaracter == '+' || penultimoCaracter == '-' || penultimoCaracter == '*') {
+                            texto.getEditableText().delete(length - 1, length);
+                        }
+                    }
+                }
                 if(texto.getText().toString().equals("0")){
                     texto.setText("0");
                 }
@@ -138,35 +237,72 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        coma.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                    String textoActual = texto.getEditableText().toString();
-                    if (!textoActual.contains(".")) {
-                        texto.getEditableText().append(".");
+        coma.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String textoActual = texto.getEditableText().toString();
+                if (textoActual.isEmpty()) return;
+                char ultimoChar = textoActual.charAt(textoActual.length() - 1);
+                if (!Character.isDigit(ultimoChar)) return;
+                char[] operadores = {'+', '-', '*', '/'};
+                int ubicacion = -1;
+                for (char operador : operadores) {
+                    int i = textoActual.lastIndexOf(operador);
+                    if (i > ubicacion) {
+                        ubicacion = i;
+                    }
+                }
+                String numeroActual = textoActual.substring(ubicacion + 1);
+                if (!numeroActual.contains(".")) {
+                    texto.getEditableText().append(".");
                 }
             }
         });
-        dividir.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
 
+        dividir.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                int length = texto.getText().length();
+                if (length > 0) {
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    if (ultimoCaracter == '-' || ultimoCaracter == '*' || ultimoCaracter == '+') {
+                        texto.getEditableText().delete(length - 1, length);
+                    }
+                }
                 texto.getEditableText().append("/");
             }
         });
         mas.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-
+            public void onClick(View view) {
+                int length = texto.getText().length();
+                if (length > 0) {
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    if (ultimoCaracter == '-' || ultimoCaracter == '*' || ultimoCaracter == '/') {
+                        texto.getEditableText().delete(length - 1, length);
+                    }
+                }
                 texto.getEditableText().append("+");
             }
         });
         menos.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-
+            public void onClick(View view) {
+                int length = texto.getText().length();
+                if (length > 0) {
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    if (ultimoCaracter == '+' || ultimoCaracter == '*' || ultimoCaracter == '/') {
+                        texto.getEditableText().delete(length - 1, length);
+                    }
+                }
                 texto.getEditableText().append("-");
             }
         });
-        multiplicar.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-
+        multiplicar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                int length = texto.getText().length();
+                if (length > 0) {
+                    char ultimoCaracter = texto.getText().toString().charAt(length - 1);
+                    if (ultimoCaracter == '+' || ultimoCaracter == '-' || ultimoCaracter == '/') {
+                        texto.getEditableText().delete(length - 1, length);
+                    }
+                }
                 texto.getEditableText().append("*");
             }
         });
@@ -191,7 +327,6 @@ public class MainActivity extends AppCompatActivity {
         });
         igual.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                String operacion = String.valueOf(texto.getText());
 
             }
         });
