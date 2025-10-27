@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    >
+    <TableRow>
+    <TextView
+        android:id = "@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="#909090"
+        android:textAlignment="textEnd"
+        android:bufferType="editable"
+        android:text=""
+        android:textSize="25dp"
+        android:textColor="#000000"/>
+    </TableRow>
+    <TableRow>
+        <ToggleButton
+            android:id="@+id/tooglebutton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toogle Button"
+            android:textOff="No pulsado"
+            android:textOn="Pulsado"/>
+    </TableRow>
+    <TableRow>
+        <ImageButton
+            android:id="@+id/imagenBoton"
+            android:layout_width="99dp"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/botn1"/>
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Texto"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Texto multi-linea"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:layout_gravity="top|start"
+        android:scrollbars="vertical"
+        android:imeOptions="flagNoEnterAction"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo electronico"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero"
+        android:inputType="number"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero decimal"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="telefono"
+        android:inputType="phone"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Conttraseña de Texto"
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña de Numero"
+        android:inputType="numberPassword"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Primera letra mayuscula"
+        android:inputType="textCapWords"
+        android:imeOptions="actionNext"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha"
+        android:inputType="date"
+        android:imeOptions="actionNext"/>
+    <AutoCompleteTextView
+        android:id="@+id/autoCompletado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionHint="Sugerencia de Texto"
+        android:completionThreshold="4"
+        android:imeOptions="actionNext"/>
+</LinearLayout>
