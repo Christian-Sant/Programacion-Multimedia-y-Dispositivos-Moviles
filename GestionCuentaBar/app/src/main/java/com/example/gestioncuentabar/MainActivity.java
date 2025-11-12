@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     porcentajePropina.setVisibility(TextView.VISIBLE);
                     porcentaje.setProgress(10);
                     porcentaje.setVisibility(SeekBar.VISIBLE);
-                    porcentajePropina.setText("Porcentaje de la Propina:  " + porcentaje.getProgress() + "%");
+                    porcentajePropina.setText(getString(R.string.porcentaje) + String.valueOf(porcentaje.getProgress()) + "%");
                 }
                 else{
                     porcentaje.setProgress(0);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         porcentaje.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                porcentajePropina.setText("Porcentaje de la Propina:  " + progress + "%");
+                porcentajePropina.setText(getString(R.string.porcentaje) + String.valueOf(progress)  + "%");
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -97,17 +97,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String camareroAtendido = camarero.getText().toString();
                 if (camareroAtendido.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Ponga el nombre del camarero", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.nombreCamarero), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String cuentaTexto = cuenta.getText().toString();
                 if (cuentaTexto.isEmpty() || Double.parseDouble(cuentaTexto) <= 0) {
-                    Toast.makeText(MainActivity.this, "Ingresa un valor mayor a 0", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.valor), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 int selectedId = radioGroupPago.getCheckedRadioButtonId();
                 if (selectedId == -1) {
-                    Toast.makeText(MainActivity.this, "Selecciona un método de pago", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.metodo), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 double cuentaIngresada = Double.parseDouble(cuentaTexto);

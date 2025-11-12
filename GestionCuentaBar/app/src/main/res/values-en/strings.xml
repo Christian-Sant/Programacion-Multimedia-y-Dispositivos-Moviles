@@ -14,4 +14,8 @@
     <string name="totalTexto">\nTotal: </string>
     <string name="metodoDePago">\nPayment Method: </string>
     <string name="calificacionServicio">\nService Rating: </string>
+    <string name="porcentaje">Tip Percentage:</string>
+    <string name="nombreCamarero">Enter the waiter’s name</string>
+    <string name="valor">Enter a value greater than 0</string>
+    <string name="metodo">Select a payment method</string>
 </resources>

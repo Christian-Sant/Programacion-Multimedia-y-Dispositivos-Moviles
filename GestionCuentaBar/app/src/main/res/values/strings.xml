@@ -14,4 +14,9 @@
     <string name="totalTexto">\nTotal: </string>
     <string name="metodoDePago">\nMetodo de Pago: </string>
     <string name="calificacionServicio">\nCalificación del servicio: </string>
+    <string name="porcentaje">Porcentaje de la Propina:  </string>
+    <string name="nombreCamarero">Ponga el nombre del camarero</string>
+    <string name="valor">Ingresa un valor mayor a 0</string>
+    <string name="metodo">Selecciona un método de pago</string>
+
 </resources>
