@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Gestion Cuenta Bar</string>
+    <string name="camarero">Waiter\'s Name</string>
+    <string name="total">Total Account Income</string>
+    <string name="propina">Include Tip</string>
+    <string name="metodoPago">Payment Method:</string>
+    <string name="efectivo">Cash</string>
+    <string name="tarjeta">Card</string>
+    <string name="calificar">Rate the Service:</string>
+    <string name="calcularTotal">Calculate Total</string>
+    <string name="atendido">Served by: </string>
+    <string name="cuenta">\nAccount: </string>
+    <string name="propinaTexto">\nTip: </string>
+    <string name="totalTexto">\nTotal: </string>
+    <string name="metodoDePago">\nPayment Method: </string>
+    <string name="calificacionServicio">\nService Rating: </string>
+</resources>

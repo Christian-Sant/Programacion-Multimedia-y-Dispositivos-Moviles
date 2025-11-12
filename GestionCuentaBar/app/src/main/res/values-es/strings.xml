@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Gestion Cuenta Bar</string>
+    <string name="camarero">Nombre del camarero</string>
+    <string name="total">Ingreso Total de la Cuenta</string>
+    <string name="propina">Incluir Propina</string>
+    <string name="metodoPago">Método de pago:</string>
+    <string name="efectivo">Efectivo</string>
+    <string name="tarjeta">Tarjeta</string>
+    <string name="calificar">Califica el Servicio:</string>
+    <string name="calcularTotal">Calcular el Total</string>
+    <string name="atendido">Le ha atendido: </string>
+    <string name="cuenta">\nCuenta: </string>
+    <string name="propinaTexto">\nPropina: </string>
+    <string name="totalTexto">\nTotal: </string>
+    <string name="metodoDePago">\nMetodo de Pago: </string>
+    <string name="calificacionServicio">\nCalificación del servicio: </string>
+</resources>
