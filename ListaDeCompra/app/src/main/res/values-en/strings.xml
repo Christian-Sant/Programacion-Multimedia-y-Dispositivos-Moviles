@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ListaDeCompra</string>
+    <string name="manzana">apple</string>
+    <string name="platano">banana</string>
+    <string name="leche">milk</string>
+    <string name="pan">bread</string>
+    <string name="galletas">cookies</string>
+    <string name="add">Add</string>
+    <string name="eliminar">Delete</string>
+</resources>
