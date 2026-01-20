@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,15 +32,12 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    // 📌 Componentes de la interfaz
     private Button btnAgregar;
     private ListView listEventos;
 
-    // 📌 Datos
     private ArrayList<Evento> listaEventos;
     private ArrayAdapter<Evento> adapter;
 
-    // 📌 Fecha y hora seleccionadas
     private String fechaSeleccionada;
     private String horaSeleccionada;
 
@@ -48,42 +46,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 🔹 Referencias a vistas
         btnAgregar = findViewById(R.id.btnAgregar);
         listEventos = findViewById(R.id.listEventos);
 
-        // 🔹 Inicializar lista y adaptador
         listaEventos = new ArrayList<>();
-        adapter = new ArrayAdapter<>(
+        adapter = new ArrayAdapter<Evento>(
                 this,
                 android.R.layout.simple_list_item_1,
                 listaEventos
-        );
+        ) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                // Intercalar colores
+                if (position % 2 == 0) {
+                    view.setBackgroundColor(0xFFFFFFFF); // blanco
+                } else {
+                    view.setBackgroundColor(0xFF9E9E9E); // gris claro
+                }
+
+                return view;
+            }
+        };
+
         listEventos.setAdapter(adapter);
 
-        // 🔹 Botón para añadir evento
-        btnAgregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarDialogoEvento();
-            }
-        });
+        btnAgregar.setOnClickListener(v -> mostrarDialogoEvento());
 
-        // 🔹 Pulsar sobre un evento → Toast personalizado
-        listEventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Evento evento = listaEventos.get(position);
-                mostrarToastPersonalizado(evento);
-            }
+        listEventos.setOnItemClickListener((parent, view, position, id) -> {
+            Evento evento = listaEventos.get(position);
+            mostrarToastPersonalizado(evento);
         });
     }
 
-    // =========================================================
-    // ALERT DIALOG – Nombre del evento
-    // =========================================================
     private void mostrarDialogoEvento() {
-
         final EditText input = new EditText(this);
         input.setHint("Nombre del evento");
 
@@ -91,15 +88,10 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Nuevo evento");
         builder.setView(input);
 
-        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                String nombreEvento = input.getText().toString();
-
-                if (!nombreEvento.isEmpty()) {
-                    mostrarDatePicker(nombreEvento);
-                }
+        builder.setPositiveButton("Continuar", (dialog, which) -> {
+            String nombreEvento = input.getText().toString().trim();
+            if (!nombreEvento.isEmpty()) {
+                mostrarDatePicker(nombreEvento);
             }
         });
 
@@ -107,21 +99,14 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    // =========================================================
-    // DATE PICKER DIALOG
-    // =========================================================
     private void mostrarDatePicker(final String nombreEvento) {
-
         Calendar calendario = Calendar.getInstance();
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        fechaSeleccionada = dayOfMonth + "/" + (month + 1) + "/" + year;
-                        mostrarTimePicker(nombreEvento);
-                    }
+                (view, year, month, dayOfMonth) -> {
+                    fechaSeleccionada = dayOfMonth + "/" + (month + 1) + "/" + year;
+                    mostrarTimePicker(nombreEvento);
                 },
                 calendario.get(Calendar.YEAR),
                 calendario.get(Calendar.MONTH),
@@ -131,33 +116,25 @@ public class MainActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    // =========================================================
-    // TIME PICKER DIALOG
-    // =========================================================
     private void mostrarTimePicker(final String nombreEvento) {
-
         Calendar calendario = Calendar.getInstance();
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(
                 this,
-                new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                (view, hourOfDay, minute) -> {
 
-                        horaSeleccionada = hourOfDay + ":" +
-                                String.format("%02d", minute);
+                    horaSeleccionada = hourOfDay + ":" + String.format("%02d", minute);
 
-                        Evento evento = new Evento(
-                                nombreEvento,
-                                fechaSeleccionada,
-                                horaSeleccionada
-                        );
+                    Evento evento = new Evento(
+                            nombreEvento,
+                            fechaSeleccionada,
+                            horaSeleccionada
+                    );
 
-                        listaEventos.add(evento);
-                        adapter.notifyDataSetChanged();
+                    listaEventos.add(evento);
+                    adapter.notifyDataSetChanged();
 
-                        mostrarNotificacion(evento);
-                    }
+                    mostrarNotificacion(evento);
                 },
                 calendario.get(Calendar.HOUR_OF_DAY),
                 calendario.get(Calendar.MINUTE),
@@ -167,9 +144,6 @@ public class MainActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    // =========================================================
-    // NOTIFICACIÓN DEL SISTEMA
-    // =========================================================
     private void mostrarNotificacion(Evento evento) {
 
         NotificationManager notificationManager =
@@ -187,16 +161,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, MainActivity.class);
+
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 this,
                 0,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE // ✅ FIX Android 12+
         );
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, canalId)
-                        .setSmallIcon(R.drawable.ic_event)
+                        .setSmallIcon(android.R.drawable.ic_dialog_info) // ✅ FIX icono seguro
                         .setContentTitle("Evento creado")
                         .setContentText(
                                 evento.getNombre() + " - " +
@@ -209,20 +184,20 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.notify(1, builder.build());
     }
 
-    // =========================================================
-    // TOAST PERSONALIZADO
-    // =========================================================
     private void mostrarToastPersonalizado(Evento evento) {
 
         LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.toast_custom, null);
+        View layout = inflater.inflate(R.layout.notificacion, null);
 
         TextView texto = layout.findViewById(R.id.txtToast);
-        texto.setText(
-                evento.getNombre() + "\n" +
-                        evento.getFecha() + " " +
-                        evento.getHora()
-        );
+
+        if (texto != null) { // ✅ FIX NullPointer
+            texto.setText(
+                    evento.getNombre() + "\n" +
+                            evento.getFecha() + " " +
+                            evento.getHora()
+            );
+        }
 
         Toast toast = new Toast(this);
         toast.setDuration(Toast.LENGTH_LONG);
