@@ -8,7 +8,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -16,7 +15,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -73,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 return view;
             }
         };
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13+
+
+        // Solicitar permiso de notificaciones en Android 13+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.POST_NOTIFICATIONS
@@ -82,10 +82,11 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(
                         this,
                         new String[]{Manifest.permission.POST_NOTIFICATIONS},
-                        100 // código de solicitud
+                        100
                 );
             }
         }
+
         listEventos.setAdapter(adapter);
 
         btnAgregar.setOnClickListener(v -> mostrarDialogoEvento());
@@ -150,7 +151,12 @@ public class MainActivity extends AppCompatActivity {
                     listaEventos.add(evento);
                     adapter.notifyDataSetChanged();
 
-                    mostrarNotificacion(evento);
+                    // Retrasar la notificación 5 segundos
+                    new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(
+                            () -> mostrarNotificacion(evento),
+                            5000
+                    );
+
                 },
                 calendario.get(Calendar.HOUR_OF_DAY),
                 calendario.get(Calendar.MINUTE),
@@ -182,12 +188,12 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 0,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE // ✅ FIX Android 12+
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, canalId)
-                        .setSmallIcon(android.R.drawable.ic_dialog_info) // ✅ FIX icono seguro
+                        .setSmallIcon(android.R.drawable.ic_dialog_info)
                         .setContentTitle("Evento creado")
                         .setContentText(
                                 evento.getNombre() + " - " +
@@ -207,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView texto = layout.findViewById(R.id.txtToast);
 
-        if (texto != null) { // ✅ FIX NullPointer
+        if (texto != null) {
             texto.setText(
                     evento.getNombre() + "\n" +
                             evento.getFecha() + " " +
