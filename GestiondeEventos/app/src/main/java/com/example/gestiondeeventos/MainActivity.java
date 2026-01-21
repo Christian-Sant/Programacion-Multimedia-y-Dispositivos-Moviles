@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private String fechaSeleccionada;
     private String horaSeleccionada;
 
+    private SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +54,11 @@ public class MainActivity extends AppCompatActivity {
         btnAgregar = findViewById(R.id.btnAgregar);
         listEventos = findViewById(R.id.listEventos);
 
-        listaEventos = new ArrayList<>();
+        prefs = getSharedPreferences("mis_eventos", MODE_PRIVATE);
+
+        // Cargar eventos guardados
+        listaEventos = cargarEventos();
+
         adapter = new ArrayAdapter<Evento>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -61,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
 
-                // Intercalar colores
                 if (position % 2 == 0) {
                     view.setBackgroundColor(0xFFFFFFFF); // blanco
                 } else {
@@ -72,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        // Solicitar permiso de notificaciones en Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -151,6 +156,9 @@ public class MainActivity extends AppCompatActivity {
                     listaEventos.add(evento);
                     adapter.notifyDataSetChanged();
 
+                    // Guardar eventos
+                    guardarEventos();
+
                     // Retrasar la notificación 5 segundos
                     new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(
                             () -> mostrarNotificacion(evento),
@@ -167,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mostrarNotificacion(Evento evento) {
-
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -183,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 this,
@@ -207,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mostrarToastPersonalizado(Evento evento) {
-
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.notificacion, null);
 
@@ -225,5 +232,38 @@ public class MainActivity extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
+    }
+
+    // -----------------------------
+    // MÉTODOS PARA GUARDAR/CARGAR
+    // -----------------------------
+    private void guardarEventos() {
+        StringBuilder sb = new StringBuilder();
+        for (Evento e : listaEventos) {
+            sb.append(e.getNombre())
+                    .append("|")
+                    .append(e.getFecha())
+                    .append("|")
+                    .append(e.getHora())
+                    .append(";");
+        }
+        prefs.edit().putString("eventos", sb.toString()).apply();
+    }
+
+    private ArrayList<Evento> cargarEventos() {
+        ArrayList<Evento> lista = new ArrayList<>();
+        String datos = prefs.getString("eventos", "");
+        if (!datos.isEmpty()) {
+            String[] eventos = datos.split(";");
+            for (String e : eventos) {
+                if (!e.isEmpty()) {
+                    String[] partes = e.split("\\|");
+                    if (partes.length == 3) {
+                        lista.add(new Evento(partes[0], partes[1], partes[2]));
+                    }
+                }
+            }
+        }
+        return lista;
     }
 }
