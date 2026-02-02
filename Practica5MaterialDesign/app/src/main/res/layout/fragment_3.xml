@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    >
+    <TextView
+        android:id = "@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="#909090"
+        android:textAlignment="textEnd"
+        android:bufferType="editable"
+        android:text="0"
+        android:textSize="25dp"
+        android:textColor="#000000">
+    </TextView>
+    <TableRow>
+        <Button
+            android:id = "@+id/AC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#DE5C31"
+            android:layout_span="2"
+            android:text="AC">
+        </Button>
+        <Button
+            android:id = "@+id/C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#DE5C31"
+            android:layout_span="2"
+            android:text="C">
+        </Button>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id = "@+id/numeroUno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="1">
+        </Button>
+        <Button
+            android:id = "@+id/numeroDos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="2">
+        </Button>
+        <Button
+            android:id = "@+id/numeroTres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="3">
+        </Button>
+        <Button
+            android:id = "@+id/dividir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#1F2443"
+            android:text="/">
+        </Button>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id = "@+id/numeroCuatro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="4">
+        </Button>
+        <Button
+            android:id = "@+id/numeroCinco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="5">
+        </Button>
+        <Button
+            android:id = "@+id/numeroSeis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="6">
+        </Button>
+        <Button
+            android:id = "@+id/multiplicar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#1F2443"
+            android:text="*">
+        </Button>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id = "@+id/numeroSiete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="7">
+        </Button>
+        <Button
+            android:id = "@+id/numeroOcho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="8">
+        </Button>
+        <Button
+            android:id = "@+id/numeroNueve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="9">
+        </Button>
+        <Button
+            android:id = "@+id/menos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#1F2443"
+            android:text="-">
+        </Button>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id = "@+id/numeroCero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#673AB7"
+            android:text="0">
+        </Button>
+        <Button
+            android:id = "@+id/coma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#1F2443"
+            android:text=".">
+        </Button>
+        <Button
+            android:id = "@+id/igual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#1F2443"
+            android:text="=">
+        </Button>
+        <Button
+            android:id = "@+id/mas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:backgroundTint="#1F2443"
+            android:text="+">
+        </Button>
+    </TableRow>
+
+</TableLayout>
