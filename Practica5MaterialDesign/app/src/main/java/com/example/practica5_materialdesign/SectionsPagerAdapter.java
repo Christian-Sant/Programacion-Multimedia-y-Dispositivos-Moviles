@@ -39,9 +39,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-            case 0: return "Home";
+            case 0: return "Nombre";
             case 1: return "Dashboard";
-            case 2: return "Notifications";
+            case 2: return "Calculadora";
             default: return null;
         }
     }
