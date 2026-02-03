@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     private Fragment1 fragment1;
+    private Fragment2 fragment2;
+    private Fragment3 fragment3;
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -22,9 +24,15 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 }
                 return fragment1;
             case 1:
-                return new Fragment2();
+                if (fragment2 == null) {
+                    fragment2 = new Fragment2();
+                }
+                return fragment2;
             case 2:
-                return new Fragment3();
+                if (fragment3 == null) {
+                    fragment3 = new Fragment3();
+                }
+                return fragment3;
             default:
                 return null;
         }
@@ -40,7 +48,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0: return "Nombre";
-            case 1: return "Dashboard";
+            case 1: return "Gestion de Bar";
             case 2: return "Calculadora";
             default: return null;
         }

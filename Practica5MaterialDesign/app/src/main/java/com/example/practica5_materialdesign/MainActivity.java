@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         // Opcional: agregar iconos a los tabs
-        tabs.getTabAt(0).setIcon(R.drawable.ic_launcher_foreground);
-        tabs.getTabAt(1).setIcon(R.drawable.ic_launcher_foreground);
-        tabs.getTabAt(2).setIcon(R.drawable.ic_launcher_foreground);
+        tabs.getTabAt(0).setIcon(R.drawable.auditoria);
+        tabs.getTabAt(1).setIcon(R.drawable.gestiondatos);
+        tabs.getTabAt(2).setIcon(R.drawable.calculadora2);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view ->

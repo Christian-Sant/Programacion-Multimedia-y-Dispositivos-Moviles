@@ -1,38 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
-
-    <LinearLayout
-        android:orientation="vertical"
+    android:layout_height="match_parent">
+    <AutoCompleteTextView
+        android:id="@+id/camarero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bienvenido al Fragment 2"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_fragment2"
+        android:hint="@string/camarero"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/total"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionNext"/>
+    <CheckBox
+        android:id="@+id/propina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/propina"/>
+    <TextView
+        android:id="@+id/porcentajePropina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text=""/>
+    <SeekBar
+        android:id="@+id/porcentaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"/>
+    <TextView
+        android:id="@+id/metodoPago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="@string/metodoPago"/>
+    <RadioGroup
+        android:id="@+id/radioGroupPago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/efectivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mostrar Snackbar"
-            app:cornerRadius="8dp"/>
-
-    </LinearLayout>
-</ScrollView>
+            android:text="@string/efectivo"/>
+        <RadioButton
+            android:id="@+id/tarjeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tarjeta"/>
+    </RadioGroup>
+    <TextView
+        android:id="@+id/calificacionServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="@string/calificar"/>
+    <RatingBar
+        android:id="@+id/calificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:rating="5" />
+    <Button
+        android:id="@+id/calcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calcularTotal"/>
+    <TextView
+        android:id="@+id/calculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text=""/>
+</LinearLayout>
