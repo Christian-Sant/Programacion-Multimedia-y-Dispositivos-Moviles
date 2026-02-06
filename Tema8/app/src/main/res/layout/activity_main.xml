@@ -27,6 +27,13 @@
         android:text="Obtener Contador"
         android:padding="10dp"
         android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/btnStarService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Servicio"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"/>
     <TextView
         android:id="@+id/txtCounter"
         android:layout_width="wrap_content"
